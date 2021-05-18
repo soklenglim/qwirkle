@@ -1,0 +1,30 @@
+Welcome To Qwirkle!
+--------Menu--------
+1. New Game
+2. Load Game
+3. Show Credits
+4. Quit
+> Enter a file name to load from
+> 
+test0 has been loaded successfully
+
+BOB, it's your turn
+
+Score for BOB: 0
+Score for ALICE: 0
+
+    0  1  2  3  4  5
+  -------------------
+A |  |  |  |  |  |  |
+B |  |  |  |  |  |  |
+C |  |  |  |  |  |  |
+D |  |  |  |  |  |  |
+E |  |  |  |  |  |  |
+F |  |  |  |  |  |  |
+
+Your hand is
+R4,Y1,Y1,B5,B6,P5
+
+> Coordinates entered is out of the board size
+Failed to place tile R4 at D6
+> Goodbye!

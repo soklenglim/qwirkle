@@ -1,0 +1,32 @@
+Welcome To Qwirkle!
+--------Menu--------
+1. New Game
+2. Load Game
+3. Show Credits
+4. Quit
+> Enter a file name to load from
+> 
+test1 has been loaded successfully
+
+ALICE, it's your turn
+
+Score for BOB: 1
+Score for ALICE: 0
+
+    0  1  2  3  4  5
+  -------------------
+A |  |  |  |  |  |  |
+B |  |  |  |  |  |  |
+C |  |  |  |  |  |  |
+D |  |  |P2|  |  |  |
+E |  |  |  |  |  |  |
+F |  |  |  |  |  |  |
+
+Your hand is
+B6,P6,B4,G6,O2,P5
+
+> Invalid Command
+> Invalid Command
+> Invalid Command
+> Invalid Command
+> Goodbye!

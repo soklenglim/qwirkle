@@ -1,0 +1,60 @@
+Welcome To Qwirkle!
+--------Menu--------
+1. New Game
+2. Load Game
+3. Show Credits
+4. Quit
+> Enter a file name to load from
+> 
+test3 has been loaded successfully
+
+ALICE, it's your turn
+
+Score for BOB: 27
+Score for ALICE: 18
+
+    0  1  2  3  4  5  6  7  8  9 10 11
+  -------------------------------------
+A |  |  |  |  |  |  |  |  |  |  |  |  |
+B |  |  |  |  |  |  |  |  |  |  |  |  |
+C |  |  |  |  |  |  |  |  |  |  |  |  |
+D |  |  |P2|P3|P4|P5|P6|  |  |  |  |  |
+E |  |O1|  |  |  |  |  |  |  |  |  |  |
+F |  |R1|  |  |  |  |  |  |  |  |  |  |
+G |  |G1|  |  |  |  |  |  |  |  |  |  |
+H |  |B1|  |  |  |  |  |  |  |  |  |  |
+I |  |Y1|  |  |  |  |  |  |  |  |  |  |
+J |  |  |  |  |  |  |  |  |  |  |  |  |
+K |  |  |  |  |  |  |  |  |  |  |  |  |
+L |  |  |  |  |  |  |  |  |  |  |  |  |
+
+Your hand is
+P1,O4,O5,R3,R5,G3
+
+> Qwirkle!!!
+Qwirkle!!!
+
+BOB, it's your turn
+
+Score for BOB: 27
+Score for ALICE: 42
+
+    0  1  2  3  4  5  6  7  8  9 10 11
+  -------------------------------------
+A |  |  |  |  |  |  |  |  |  |  |  |  |
+B |  |  |  |  |  |  |  |  |  |  |  |  |
+C |  |  |  |  |  |  |  |  |  |  |  |  |
+D |  |P1|P2|P3|P4|P5|P6|  |  |  |  |  |
+E |  |O1|  |  |  |  |  |  |  |  |  |  |
+F |  |R1|  |  |  |  |  |  |  |  |  |  |
+G |  |G1|  |  |  |  |  |  |  |  |  |  |
+H |  |B1|  |  |  |  |  |  |  |  |  |  |
+I |  |Y1|  |  |  |  |  |  |  |  |  |  |
+J |  |  |  |  |  |  |  |  |  |  |  |  |
+K |  |  |  |  |  |  |  |  |  |  |  |  |
+L |  |  |  |  |  |  |  |  |  |  |  |  |
+
+Your hand is
+O6,P6,R2,R4,R6,G2
+
+> Goodbye!

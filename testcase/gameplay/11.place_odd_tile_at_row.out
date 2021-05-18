@@ -1,0 +1,32 @@
+Welcome To Qwirkle!
+--------Menu--------
+1. New Game
+2. Load Game
+3. Show Credits
+4. Quit
+> Enter a file name to load from
+> 
+test2 has been loaded successfully
+
+ALICE, it's your turn
+
+Score for BOB: 27
+Score for ALICE: 18
+
+    0  1  2  3  4  5  6  7
+  -------------------------
+A |  |  |  |  |  |  |  |  |
+B |  |  |  |  |  |  |  |  |
+C |  |  |  |  |  |  |  |  |
+D |  |P1|P2|P3|P4|P5|  |  |
+E |  |O1|O2|O3|  |  |  |  |
+F |  |R1|  |  |  |  |  |  |
+G |  |G1|  |  |  |  |  |  |
+H |  |  |  |  |  |  |  |  |
+
+Your hand is
+O6,O4,O5,R3,R5,G3
+
+> This is not a valid move
+Failed to place tile O5 at D6
+> Goodbye!
