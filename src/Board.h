@@ -11,6 +11,12 @@
 #include "Type.h"
 #include <sstream>
 
+#include "map"
+#include <ctime>
+#include <cstdlib>
+#include <chrono>
+#include <time.h>
+
 class Board
 {
     public:

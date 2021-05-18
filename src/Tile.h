@@ -2,6 +2,12 @@
 #define ASSIGN2_TILE_H
 
 #include "Type.h"
+#include "map"
+#include <sstream>
+#include <ctime>
+#include <cstdlib>
+#include <chrono>
+#include <time.h>
 
 class Tile {
 public:
@@ -21,7 +27,7 @@ public:
    bool empty();
    Colour getColour();
    Shape getShape();
-
+   std::string toString();
 };
 
 #endif // ASSIGN2_TILE_H

@@ -1,5 +1,6 @@
 #include "Board.h"
 
+
 Board::Board(){
     boardCol = 6;
     boardRow = 6;
@@ -56,8 +57,10 @@ std::string Board::tilePosition(char row, int col)
         // Checks if the tile is at the row col
         if(tileRow == row && tileCol == col)
         {
+
             // Sets the string to the tile
-            tilePos = tile->colour + std::to_string(tile->shape);
+            
+            tilePos = tile->toString();
         }   
     }
     // Prints a space if no tile exists in the current square
