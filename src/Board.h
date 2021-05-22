@@ -10,12 +10,7 @@
 #include "Player.h"
 #include "Type.h"
 #include <sstream>
-
-#include "map"
-#include <ctime>
-#include <cstdlib>
-#include <chrono>
-#include <time.h>
+#include "TileCodes.h"
 
 class Board
 {
@@ -36,7 +31,6 @@ class Board
     private:
         std::shared_ptr<Tile> array[BOARD_SIZE][BOARD_SIZE];
         std::vector< shared_ptr<Tile> > board;
-        
         void expandBoard(Row rowTile, Col colTile);
         bool validMove(shared_ptr<Tile> tile);
         bool exist(Row tileRow, Col tileCol);

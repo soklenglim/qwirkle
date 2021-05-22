@@ -16,6 +16,7 @@ int Board::getLength(){
     return this->board.size();
 }
 
+
 void Board::printBoard(){
     char row = A_CHAR;
     printf("%2c", ' ');
@@ -28,14 +29,40 @@ void Board::printBoard(){
     // Prints the line under the column numbers
     printf("%2c%s\n", ' ',std::string((boardCol*COLWID) + 1,'-').c_str());
 
+ 
     // Prints the tiles and row letter on the board
     for(int i = 0; i < boardRow; i++)
     {
         std::cout << row << " |";
         for(int j = 0; j < boardCol; j++)
         {
-            // Gets the tile position
-            std::cout << tilePosition(row, j) << "|"; 
+            std::string tile = tilePosition(row, j);
+            char colour = tile[0];
+            std::string shape;
+            std::string colours;
+            std::string shapeUnicode;
+            
+
+            if(tile != "  " && tile.length() > 1){
+                shape = tile[1];
+                if(colour == RED) colours = "\033[31mR";
+                else if(colour == ORANGE) colours = "\033[31mO";
+                else if(colour == GREEN) colours = "\033[32mG";
+                else if(colour == BLUE) colours = "\033[34mB";
+                else if(colour == YELLOW) colours = "\033[33mY";
+                else if(colour == PURPLE) colours = "\033[35mP";
+
+                if(std::stoi(shape) == CIRCLE)  shapeUnicode = "\u25CB";
+                else if(std::stoi(shape) == STAR_4)   shapeUnicode = "\u2606";
+                else if(std::stoi(shape) == DIAMOND)   shapeUnicode = "\u2662";
+                else if(std::stoi(shape) == SQUARE)   shapeUnicode = "\u25A1";
+                else if(std::stoi(shape) == STAR_6)   shapeUnicode = "\u2736";
+                else if(std::stoi(shape) == CLOVER)   shapeUnicode = "\u2663";
+                tile = colours + shapeUnicode + "\033[37m";
+            }
+
+            
+            std::cout << tile << "|"; 
         }
         std::cout << "\n";
         row++;
@@ -59,8 +86,7 @@ std::string Board::tilePosition(char row, int col)
         {
 
             // Sets the string to the tile
-            
-            tilePos = tile->toString();
+            tilePos = tile->colour + std::to_string(tile->shape);
         }   
     }
     // Prints a space if no tile exists in the current square

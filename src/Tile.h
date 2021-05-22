@@ -27,7 +27,6 @@ public:
    bool empty();
    Colour getColour();
    Shape getShape();
-   std::string toString();
 };
 
 #endif // ASSIGN2_TILE_H
