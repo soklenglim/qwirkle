@@ -22,16 +22,19 @@ public:
 
     string playerName;
     int score;
+    int numPlayer;
 
     std::shared_ptr<LinkedList> getHand();
 
     void setPlayerHand(shared_ptr<LinkedList> playerHand);
     void addScore(int score);
     void setName(string playerName);
+    void setNumPlayer(int numPlayer);
 
     string getHandString();
     string printHandSave();
     string getName();
+    int getNumPlayer();
     
     int getScore();
 };

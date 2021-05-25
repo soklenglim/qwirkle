@@ -178,7 +178,6 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
 
         if(tile->colour != tileAtPos[0]){
             colourMatch = -1;
-            std::cout << "Tiles on the right side has different colour." << std::endl;
         }
         if(std::to_string(tile->shape) != std::string(1, tileAtPos[1])){
             shapeMatch = -1;
@@ -186,7 +185,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
         if (tile->colour == tileAtPos[0] && std::to_string(tile->shape) == std::string(1, tileAtPos[1])) {
             colourMatch = -1;
             shapeMatch = -1;
-            std::cout << "Cannot place the same tile as right tile." << std::endl;
+            std::cout << "The same tile has been placed on right row." << std::endl;
         }
     }
 
@@ -214,7 +213,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
         if (tile->colour == tileAtPos[0] && std::to_string(tile->shape) == std::string(1, tileAtPos[1])) {
             colourMatch = -1;
             shapeMatch = -1;
-            std::cout << "Cannot place the same tile as left tile." << std::endl;
+            std::cout << "The same tile has been placed on left row." << std::endl;
         }
     }
 
@@ -242,7 +241,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
         if (tile->colour == tileAtPos[0] && std::to_string(tile->shape) == std::string(1, tileAtPos[1])) {
             colourMatch = -1;
             shapeMatch = -1;
-            std::cout << "Cannot place the same tile as below tile." << std::endl;
+            std::cout << "The same tile has been placed on below row." << std::endl;
         }
     }
 
@@ -270,7 +269,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
         if (tile->colour == tileAtPos[0] && std::to_string(tile->shape) == std::string(1, tileAtPos[1])) {
             colourMatch = -1;
             shapeMatch = -1;
-            std::cout << "Cannot place the same tile as above tile." << std::endl;
+            std::cout << "The same tile has been placed on above row." << std::endl;
         }
     }
 
@@ -281,7 +280,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
     //if no match, validMove will return false and print an error message
     tileCol = tile->col;
     tileRow = tile->row;
-
+    
     if (!exist(tileRow - 1, tileCol) && !exist(tileRow + 1, tileCol) && !exist(tileRow, tileCol - 1) && !exist(tileRow, tileCol + 1)){
         validMove = false;
         std::cout << "Need to place next to other tiles." << std::endl;

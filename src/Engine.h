@@ -33,14 +33,14 @@ public:
     void playTile(Tile tile);
     void saveGame(string fileName);
     void loadGame(string fileName);
-    void gameRun();
+    void gameRun(int numPlayer);
     void randomiseBag();
     
 private:
     // Board
     Board* board;
     // Players
-    Player* players[PLAYERS];
+    Player* players[MAX_PLAYERS];
     // Bag
     shared_ptr<LinkedList> bag;
     // Current Player
@@ -50,7 +50,7 @@ private:
     void initialiseBag();
 
     // Gives tiles to players until their bag is full
-    void giveTiles();
+    void giveTiles(int numPlayer);
 
     // End Game
     bool endGame(Player* curPlayer);

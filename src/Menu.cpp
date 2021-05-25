@@ -52,12 +52,35 @@ void Menu::mainMenu() {
 
 void Menu::newGame() {
     std::cout << "Starting a new game...\n" << std::endl;
+
+    std::cout << "How many players? (2-4 players)\n>";
+    std::cin>>numPlayer;
+    bool check = true;
+    while(check){
+        if(std::cin.fail()){
+            std::cin.clear();
+            std::cin.ignore();
+            std::cout<< "Please input number between 2 to 4"<<std::endl;
+            std::cin>>numPlayer;
+        } else if(numPlayer > 4 || numPlayer <= 1){
+            std::cin.clear();
+            std::cin.ignore();
+            std::cout<< "Please input number between 2 to 4"<<std::endl;
+            std::cin>>numPlayer;
+        } else if(std::cin.eof()) {
+            quit();
+        } else if(!std::cin.fail()){
+            check = false;
+        }
+    }
+    Player* players[numPlayer];
     //get both player names via std::cin
-    for(int i=0; i < PLAYERS; i++){
+    for(int i=0; i < numPlayer; i++){
         bool check = false;
         std::cout << "Enter a name for Player "<<i+1<<" (Uppercase characters only!)\n> ";
         std::cin >> playerName;
-        if (std::cin.eof()) {
+        
+        if(std::cin.eof()) {
             quit();
         }else{
             while(check != true){
@@ -69,17 +92,17 @@ void Menu::newGame() {
                         quit();
                     }
                 }else{
-                    this->players[i] = new Player(playerName);
+                    players[i] = new Player(playerName);
                     //if i > 0, it means current input is player 2 name
                     //so it will check if the name matches player one's
                     if(i>0){
-                        if(this->players[i]->getName() == this->players[i-1]->getName()){
+                        if(players[i]->getName() == players[i-1]->getName()){
                             std::cout<<"Sorry, this name is already taken...\n> ";
                             std::cin >> playerName;
                             if (std::cin.eof()) {
                                 quit();
                             }
-                            this->players[i]->setName(playerName);
+                            players[i]->setName(playerName);
                         } else {
                             check = true;
                         }
@@ -90,7 +113,8 @@ void Menu::newGame() {
             }
         }
     }
-    e->startGame(players, PLAYERS);
+    
+    e->startGame(players, numPlayer);
     delete e;
     quit();
 }

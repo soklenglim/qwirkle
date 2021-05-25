@@ -19,6 +19,7 @@ typedef int Col;
 
 // Define player size
 #define     PLAYERS         2
+#define     MAX_PLAYERS     4
 
 // Define Colwidth
 #define     COLWID          3

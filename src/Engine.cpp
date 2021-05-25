@@ -11,18 +11,20 @@ Engine::~Engine(){
 void Engine::startGame(Player* playerList[], int numPlayer)
 {
     bag = std::make_shared<LinkedList>();
-    this->players[0] = playerList[0];
-    this->players[1] = playerList[1];
+    for(int i=0; i < numPlayer; i++){
+        this->players[i] = playerList[i];
+    }
+
     initialiseBag();
     randomiseBag();
-    giveTiles();
-    gameRun();
+    giveTiles(numPlayer);
+    gameRun(numPlayer);
 }
 
-void Engine::giveTiles()
+void Engine::giveTiles(int numPlayer)
 {
     // Loop to give tiles to all players
-    for(int i = 0; i < PLAYERS; i++){
+    for(int i = 0; i < numPlayer; i++){
         shared_ptr<LinkedList> giveTiles = std::make_shared<LinkedList>();
         for(int i=0; i < START_SIZE; i++){
             shared_ptr<Tile> t = bag->removeFront();
@@ -65,16 +67,15 @@ void Engine::randomiseBag(){
 
 }
 
-void Engine::gameRun()
+void Engine::gameRun(int numPlayer)
 {
     bool exit = false;
     int playerNo = 0;
-
     // This is for loading the game, will check the current player and gets the playerno
     // of the current player
     if(this->currentPlayer != nullptr)
     {
-        for(int i = 0; i < PLAYERS; i++) if(players[i]->getName() == currentPlayer->getName()) playerNo = i;
+        for(int i = 0; i < numPlayer; i++) if(players[i]->getName() == currentPlayer->getName()) playerNo = i;
     }
     do
     {
@@ -86,8 +87,9 @@ void Engine::gameRun()
         // Sets the current player name so when we save it will store the current player
         this->currentPlayer = players[playerNo];
         std::cout << "\n" << this->currentPlayer->getName() << ", it's your turn\n" << std::endl;
-        std::cout << "Score for " << this->players[0]->getName() + ": "<< this->players[0]->getScore() << std::endl;
-        std::cout << "Score for " << this->players[1]->getName() + ": " << this->players[1]->getScore() << "\n" << std::endl;
+        for(int i=0; i<numPlayer; i++){
+            std::cout << "Score for " << this->players[i]->getName() + ": "<< this->players[i]->getScore() << std::endl;
+        }
 
         // Prints the board
         this->board->printBoard();
@@ -166,10 +168,11 @@ void Engine::gameRun()
             }
         } while(!endturn);  
         
-        if(playerNo == (PLAYERS - 1))playerNo = 0;
+        if(playerNo == (numPlayer - 1))playerNo = 0;
         else playerNo++;
 
     } while(!endGame(currentPlayer) && !exit);
+
 }
 
 
@@ -418,7 +421,7 @@ void Engine::loadGame(string fileName)
             lineCount++;
         }
         std::cout << "\n" << fileName << " has been loaded successfully" << std::endl;
-        gameRun();
+        gameRun(PLAYERS);
     }
     else
     {

@@ -63,3 +63,11 @@ int Player::getScore(){
 void Player::addScore(int score){
     this->score = score;
 }
+
+void Player::setNumPlayer(int numPlayer){
+    this->numPlayer = numPlayer;
+}
+
+int Player::getNumPlayer(){
+    return numPlayer;
+}
