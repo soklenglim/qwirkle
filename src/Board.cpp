@@ -46,19 +46,37 @@ void Board::printBoard(){
 
             if(tile != "  " && tile.length() > 1){
                 shape = tile[1];
-                if(colour == RED) colours = "\033[31mR";
-                else if(colour == ORANGE) colours = "\033[31mO";
-                else if(colour == GREEN) colours = "\033[32mG";
-                else if(colour == BLUE) colours = "\033[34mB";
-                else if(colour == YELLOW) colours = "\033[33mY";
-                else if(colour == PURPLE) colours = "\033[35mP";
+                if(colour == RED) {
+                    colours = CodeRED; 
+                    colours += RED;
+                }
+                else if(colour == ORANGE) {
+                    colours = CodeORANGE;
+                    colours += ORANGE;
+                }
+                else if(colour == GREEN) {
+                    colours = CodeGREEN;
+                    colours += GREEN;
+                }
+                else if(colour == BLUE) {
+                    colours = CodeBLUE; 
+                    colours += BLUE;
+                }
+                else if(colour == YELLOW) {
+                    colours = CodeYELLOW;
+                    colours += YELLOW;
+                }
+                else if(colour == PURPLE) {
+                    colours = CodePURPLE;
+                    colours += PURPLE;
+                }
 
-                if(std::stoi(shape) == CIRCLE)  shapeUnicode = "\u25CB";
-                else if(std::stoi(shape) == STAR_4)   shapeUnicode = "\u2606";
-                else if(std::stoi(shape) == DIAMOND)   shapeUnicode = "\u2662";
-                else if(std::stoi(shape) == SQUARE)   shapeUnicode = "\u25A1";
-                else if(std::stoi(shape) == STAR_6)   shapeUnicode = "\u2736";
-                else if(std::stoi(shape) == CLOVER)   shapeUnicode = "\u2663";
+                if(std::stoi(shape) == CIRCLE)  {shapeUnicode = CodeCIRCLE;}
+                else if(std::stoi(shape) == STAR_4) {shapeUnicode = CodeSTAR_4;}
+                else if(std::stoi(shape) == DIAMOND)   {shapeUnicode = CodeDIAMOND;}
+                else if(std::stoi(shape) == SQUARE)   {shapeUnicode = CodeSQUARE;}
+                else if(std::stoi(shape) == STAR_6)   {shapeUnicode = CodeSTAR_6;}
+                else if(std::stoi(shape) == CLOVER)   {shapeUnicode = CodeCLOVER;}
                 tile = colours + shapeUnicode + defaultColor;
             }
 
@@ -160,6 +178,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
 
         if(tile->colour != tileAtPos[0]){
             colourMatch = -1;
+            std::cout << "Tiles on the right side has different colour." << std::endl;
         }
         if(std::to_string(tile->shape) != std::string(1, tileAtPos[1])){
             shapeMatch = -1;
@@ -167,6 +186,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
         if (tile->colour == tileAtPos[0] && std::to_string(tile->shape) == std::string(1, tileAtPos[1])) {
             colourMatch = -1;
             shapeMatch = -1;
+            std::cout << "Cannot place the same tile as right tile." << std::endl;
         }
     }
 
@@ -194,6 +214,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
         if (tile->colour == tileAtPos[0] && std::to_string(tile->shape) == std::string(1, tileAtPos[1])) {
             colourMatch = -1;
             shapeMatch = -1;
+            std::cout << "Cannot place the same tile as left tile." << std::endl;
         }
     }
 
@@ -221,6 +242,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
         if (tile->colour == tileAtPos[0] && std::to_string(tile->shape) == std::string(1, tileAtPos[1])) {
             colourMatch = -1;
             shapeMatch = -1;
+            std::cout << "Cannot place the same tile as below tile." << std::endl;
         }
     }
 
@@ -248,6 +270,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
         if (tile->colour == tileAtPos[0] && std::to_string(tile->shape) == std::string(1, tileAtPos[1])) {
             colourMatch = -1;
             shapeMatch = -1;
+            std::cout << "Cannot place the same tile as above tile." << std::endl;
         }
     }
 
@@ -261,6 +284,7 @@ bool Board::validMove(std::shared_ptr<Tile> tile){
 
     if (!exist(tileRow - 1, tileCol) && !exist(tileRow + 1, tileCol) && !exist(tileRow, tileCol - 1) && !exist(tileRow, tileCol + 1)){
         validMove = false;
+        std::cout << "Need to place next to other tiles." << std::endl;
     }
     else if (validLeft && validRight && validUp && validDown) {
         validMove = true;

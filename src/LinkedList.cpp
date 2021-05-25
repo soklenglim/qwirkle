@@ -167,21 +167,21 @@ void LinkedList::clear(){
 std::string LinkedList::toStringColourAndShape(bool tiles){
   std::map<Colour, std::string> color_map;
   std::map<Shape, std::string> shape_map;
-  color_map[RED] = "\033[31m";
-  color_map[ORANGE] = "\u001b[31;1m";
-  color_map[GREEN] = "\033[32m";
-  color_map[BLUE] = "\033[34m";
-  color_map[YELLOW] = "\033[33m";
-  color_map[PURPLE] = "\033[35m";
-  color_map[' '] = "\033[37m";
+  color_map[RED] = CodeRED;
+  color_map[ORANGE] = CodeORANGE;
+  color_map[GREEN] = CodeGREEN;
+  color_map[BLUE] = CodeBLUE;
+  color_map[YELLOW] = CodeYELLOW;
+  color_map[PURPLE] = CodePURPLE;
+  color_map[' '] = CodeDefault;
 
   
-  shape_map[CIRCLE] = "\u25CB";
-  shape_map[STAR_4] = "\u2606";
-  shape_map[DIAMOND] = "\u2662";
-  shape_map[SQUARE] = "\u25A1";
-  shape_map[STAR_6] = "\u2736";
-  shape_map[CLOVER] = "\u2663";
+  shape_map[CIRCLE] = CodeCIRCLE;
+  shape_map[STAR_4] = CodeSTAR_4;
+  shape_map[DIAMOND] = CodeDIAMOND;
+  shape_map[SQUARE] = CodeSQUARE;
+  shape_map[STAR_6] = CodeSTAR_6;
+  shape_map[CLOVER] = CodeCLOVER;
 
 
   std::stringstream stream;
