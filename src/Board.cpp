@@ -41,6 +41,7 @@ void Board::printBoard(){
             std::string shape;
             std::string colours;
             std::string shapeUnicode;
+            std::string defaultColor = "\033[37m";
             
 
             if(tile != "  " && tile.length() > 1){
@@ -58,7 +59,7 @@ void Board::printBoard(){
                 else if(std::stoi(shape) == SQUARE)   shapeUnicode = "\u25A1";
                 else if(std::stoi(shape) == STAR_6)   shapeUnicode = "\u2736";
                 else if(std::stoi(shape) == CLOVER)   shapeUnicode = "\u2663";
-                tile = colours + shapeUnicode + "\033[37m";
+                tile = colours + shapeUnicode + defaultColor;
             }
 
             
